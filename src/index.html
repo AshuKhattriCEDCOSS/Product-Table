@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Product Table</title>
+  </head>
+  <body>
+    <center>
+      <form>
+        <div id="inputtext">
+          <label>Product Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <input type="text" id="pid" />
+          <br /><br />
+          <label>Product Name</label>
+          <input type="text" id="pname" />
+          <br /><br />
+          <label>Product Price&nbsp;</label>
+          <input type="text" id="pprice" />
+          <br /><br /><br />
+          <input type="button" value="ADD PRODUCT" onclick="validate()" />
+        </div>
+      </form>
+      <table>
+        <tr>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+        </tr>
+        <tbody id="check"></tbody>
+      </table>
+    </center>
+  </body>
+</html>
