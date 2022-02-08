@@ -1,23 +1,42 @@
-function validate(){
-    var b=document.getElementById("pid").value;
-    var c=document.getElementById("pname").value;
-    var d=document.getElementById("pprice").value;
-    if(b!="" && c!="" && d!="")
-    {
-        json(b,c,d)
+var a = [];
+function add() {
+  var productid = document.getElementById("pid").value;
+  var productname = document.getElementById("pname").value;
+  var productprice = document.getElementById("pprice").value;
+  var obj = { id: productid, name: productname, price: productprice };
+
+  if (productid != "" && productname != "" && productprice != "") {
+    if (check(productid)) {
+      a.push(obj);
+      display();
+    } else {
+      alert("Cant Insert!! (ID Must be Unique!!)");
     }
-    else{
-        alert("Fill All Fields!!");
-    }
+  } else {
+    alert("Fill All Fields!!");
+  }
 }
 
-function json(b,c,d)
-{
-    var a=[];
-    var e={id:b,name:c,price:d};
-    a.push(e);
-    for(var i=0;i<=a.length;i++)
-    {
-        document.getElementById("check").innerHTML+="<tr><td>"+a[i].id+"</td><td>"+a[i].name+"</td><td>"+a[i].price+"</td></tr>";
+function check(b) {
+  for (var i = 0; i < a.length; i++) {
+    if (a[i].id == b) {
+      return false;
     }
+  }
+  return true;
 }
+function display() {
+    var temp="";
+  for (var i = 0; i < a.length; i++) {
+    temp +=
+      "<tr><td>" +
+      a[i].id +
+      "</td><td>" +
+      a[i].name +
+      "</td><td>" +
+      a[i].price +
+      "</td></tr>";
+  }
+document.getElementById("check").innerHTML =temp;
+}
+
